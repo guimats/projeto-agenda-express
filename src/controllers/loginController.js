@@ -51,7 +51,7 @@ exports.login = async (req, res) => {
         // criando sessão para o usuário
         req.session.user = login.user;
         req.session.save(() => {
-            return res.redirect('index');
+            return res.redirect('back');
         });
 
     } catch (e) {

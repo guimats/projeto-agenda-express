@@ -3,6 +3,7 @@ const validator = require('validator');
 const bcryptjs = require('bcryptjs');
 
 const LoginSchema = new mongoose.Schema({
+    nome: {type: String, required: true},
     email: { type: String, required: true },
     password: { type: String, required: true }
 });
@@ -38,6 +39,8 @@ class Login {
 
     async register() {
         this.valida();
+        if(!this.body.nome) this.errors.push('Nome precisa ser preenchido');
+        
         if (this.errors.length > 0) return;
 
         await this.userExists();
@@ -61,6 +64,7 @@ class Login {
     valida() {
         this.cleanUp();
         // validação
+
         // email precisa ser valido
         if (!validator.isEmail(this.body.email)) this.errors.push('Email inválido');
 
@@ -81,9 +85,10 @@ class Login {
 
         // garantido que o objeto tenha somente os campos desejados
         this.body = {
+            nome: this.body.nome,
             email: this.body.email,
             password: this.body.password,
-        }
+        };
     }
 }
 

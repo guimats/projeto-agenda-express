@@ -1,13 +1,18 @@
 <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Agenda</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="container-flex">
+            <a class="navbar-brand" href="/">Agenda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <% if(user) { %>
+                <p class="navbar-brand nav-nome">| Olá <%= user.nome %></p>
+            <% } %>
+        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: right">
             <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-
                 <li class="nav-item">
                     <a class="nav-link" href="/contato/index">Cadastrar contato</a>
                 </li>
