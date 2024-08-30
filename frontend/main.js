@@ -14,11 +14,11 @@ login.init();
 cadastro.init();
 contato.init();
 
-document.addEventListener('click', e => {
+document.addEventListener('mousemove', e => {
     const el = e.target;
 
     if(el.classList.contains('alert-success') || el.classList.contains('alert-danger')) {
         setTimeout(() => {
             el.remove();
         }, 3000)};
-})
+});
