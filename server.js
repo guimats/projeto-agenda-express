@@ -14,11 +14,8 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash'); // mensagem que é exibida apenas uma vez
 const routes = require('./routes'); // rotas da aplicação
 const path = require('path');
-const helmet = require('helmet');
 const csrf = require('csurf');
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware');
-
-app.use(helmet());
 
 app.use(express.urlencoded({ extended: true })); // permite postar forms para dentro da aplicação
 app.use(express.json()); // permite postar json para dentro da aplicação
